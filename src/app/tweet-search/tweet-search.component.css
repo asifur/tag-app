@@ -1,0 +1,22 @@
+h1 {
+    font-family: montserrat_bold;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;    
+  }
+
+  p {
+    font-family: montserrat_regular;
+    font-size: 15px;
+  }
+
+  .card {
+    background-color: #FFFEFB;
+  }
+
+  article {
+      font-size: 13px;
+      font-family: 'montserrat_bold';
+  }

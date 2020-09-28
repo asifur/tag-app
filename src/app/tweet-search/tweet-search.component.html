@@ -1,0 +1,51 @@
+<section>
+    <h1 class="text-center">{{tweetSearch_Header_Text}}</h1>
+    <p>
+        {{tweetSearch_Intro_Text}}
+    </p>
+</section>
+<form class="form-inline md-form form-sm">
+    <input (keyup)="onKey($event)" class="form-control form-control-sm" type="text" placeholder="Search"
+        aria-label="Search" mdbInput>
+    <button type="button" (click)="findTwitterTag()" class="btn btn-primary">{{tweetSearch_Search_Button_Text}}</button>
+</form>
+<article class="flex-container">
+    <article *ngIf="tweetSearch_Pending; else searchResult" class="d-flex justify-content-center mt-5">
+        <section class="text-info">{{tweetSearch_Searching_Text}} {{this.searchKeyWord}}</section>
+        <article class="spinner-grow text-info ml-5" role="status">
+            <section class="sr-only">Loading...</section>
+        </article>
+    </article>
+    <ng-template #searchResult>
+        <article *ngIf="tagList; else noResult">
+            <section class="text-success">{{tweetSearch_Searched_Text}} {{this.searchKeyWord}}</section>
+            <article *ngFor="let tag of tagList">
+                <article>
+                    <article class="card">
+                        <article class="header">
+                            <section> <img class="float-left ml-2 mt-2" src="{{tag.tweetDTO.user.profile_image_url}}"
+                                    alt="not found" /></section>
+                            <article class="header-text mr-2">
+                                <section class="float-right"> {{tag.tweetDTO.user.name}}</section> <br>
+                                <section class="float-right" *ngIf="tag.tweetDTO.user.location">
+                                    {{tag.tweetDTO.user.location}}</section>
+                            </article>
+                        </article>
+                        <article class="mb-2 ml-2">
+                            <section>{{tweetSearch_Tweet_Label}} {{tag.tweetDTO.text}}</section>
+                            <section class="float-left">{{tweetSearch_creationTime_lebel}}
+                                {{tweetSearch_creationTime}}{{tag.tweetDTO.created_at | date }}</section>
+                        </article>
+                    </article>
+                </article>
+            </article>
+        </article>
+        <ng-template #noResult>
+            <article>
+                <section>{{tweetSearch_NotFound}}</section>
+            </article>
+        </ng-template>
+    </ng-template>
+
+
+</article>
