@@ -1,4 +1,6 @@
 # TagApp
+This is a test project for find hashtags on twitter. I have limited 10 tweets result from the API to return. The backend is done on .Net core web api. I have tested both API and angular projects on a local machine. To accept requests from cross platforms I have updated the .Net API to cors enable for any site. Though I could have mentioned the site url and port too. This may not be a complete solution and may need enhancement. I have shown tweet text, user name, user profile image, location and date posted. There are a lot of information available in the response but I am using just a few of those just to display in a single page
+State management and routing not done. I planned to use NGXS, but was not able to apply that in limited time. So Store is not created and the objects are not dispatched. I have used localstorage for a short and temporary workaround.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
